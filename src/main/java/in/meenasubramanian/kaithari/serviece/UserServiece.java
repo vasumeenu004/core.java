@@ -14,4 +14,19 @@ public class UserServiece {
 		return UserList;
 	}
 
+	public void create() {
+		User newUser = new User();
+		newUser.setId(186540);
+		newUser.setEmail("meenu2004@gmail.com");
+		newUser.setFirstName("Meena");
+		newUser.setLastName("Subramanian");
+		newUser.setActive(true);
+		newUser.setPassword("Meenu@2343");
+
+		UserDAO userDao = new UserDAO();
+		userDao.create(newUser);
+	}
+
+	
+
 }
