@@ -58,7 +58,7 @@ public class User {
 	int id;
 	String firstName;
 	String lastName;
-	boolean isActive;
+	boolean isActive = true;
 	String password;
 	String email;
 
