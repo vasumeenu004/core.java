@@ -57,11 +57,11 @@ public class TestCreateUser {
 		
 	}
 	@Test
-	public void testCreateUserWithEmptyEmail()  {
+	public void testCreateUserWithEmailEmpty()  {
 		UserServiece userServiece = new UserServiece();
 		User newUser = new User();
 		newUser.setId(186540);
-		newUser.setEmail(" ");
+		newUser.setEmail("");
 		newUser.setFirstName("Meena");
 		newUser.setLastName("Subramanian");
 		newUser.setActive(true);
