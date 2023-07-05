@@ -1,5 +1,8 @@
 package in.meenasubramanian.kaithari.serviece;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import in.meenasubramanian.kaithari.dao.TaskDAO;
 import in.meenasubramanian.kaithari.model.Task;
 import in.meenasubramanian.kaithari.validation.TaskValidator;
@@ -19,6 +22,18 @@ public class TaskServiece {
    	 TaskDAO taskDao = new TaskDAO();
    	 taskDao.create(newTask);
     }
+    
+    public static LocalDate convertToDate(String date) {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		
+		try {
+			LocalDate localDate = LocalDate.parse(date, formatter);
+			return localDate;
+		} catch (Exception e) {
+			System.out.println("Invalid date format!");
+			return null;
+		}
+	}
     
     public void update(Task updateTask) throws Exception {
    	TaskValidator.Validate(updateTask);

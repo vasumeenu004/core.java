@@ -1,5 +1,7 @@
 package in.meenasubramanian.kaithari.model;
 
+import java.time.LocalDate;
+
 public class Task {
 
 		@Override
@@ -45,14 +47,14 @@ public class Task {
 
 
 
-	public String getDueDate() {
+	public LocalDate getDueDate() {
 		return dueDate;
 	}
 
 
 
-	public void setDueDate(String dueDate) {
-		this.dueDate = dueDate;
+	public void setDueDate(LocalDate convert) {
+		this.dueDate = convert;
 	}
 
 
@@ -60,7 +62,7 @@ public class Task {
 		int id;
 		String name;
 		boolean isActive = true;
-		String dueDate;
+		LocalDate dueDate;
 	
 	
 

@@ -14,15 +14,7 @@ public class TaskValidator {
             throw new ValidationException("Invalid Task Input");
         }
         
-        StringUtil.rejectIfInvalidString(task.getName(), "Name");
-        StringUtil.rejectIfInvalidString(task.getDueDate(), "DueDate");
-        
-        String date = task.getDueDate();
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate dueDate = LocalDate.parse(date, formatter);
-        LocalDate currentDate = LocalDate.now();
-		if(dueDate.equals(currentDate) || dueDate.isBefore(currentDate)) {
-			throw new ValidationException("Due date should be in future");
-		}
+        StringUtil.rejectIfInvalidString(task.getName(), "name");
+        StringUtil.rejectIfInvalidDate(task.getDueDate(), "due date");
     }
 }

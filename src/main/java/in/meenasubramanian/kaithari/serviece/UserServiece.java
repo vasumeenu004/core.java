@@ -21,9 +21,18 @@ public class UserServiece {
 		userDao.create(newUser);
 	}
 
-//	public void update(int id, User updatedUser) {
-//		UserDAO userDao = new UserDAO();
-//		userDao.update(id, updatedUser);
-//	}
+	public void update() {
+		UserDAO userDao = new UserDAO();
+		User update1 = new User();
+		update1.setEmail("meenu@gmail.com");
+		update1.setFirstName("Saranya");
+		userDao.update(update1);
+	}
+	public void delete() {
+		UserDAO userDao = new UserDAO();
+		User delete1 = new User();
+		delete1.setId(186540);
+		userDao.delete(delete1);
+	}
 
 }
