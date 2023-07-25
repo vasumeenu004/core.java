@@ -31,16 +31,16 @@ public class UserServiece {
 		userdao.update(newId, newUser);
 
 	}
-
+	
 	public void delete(int Id) {
 
 		userdao.delete(Id);
 
 	}
 
-	public void findById(int newId) {
+	public User findById(int newId) {
 
-		userdao.findById(newId);
+		return userdao.findById(newId);
 
 	}
 
@@ -57,3 +57,7 @@ public class UserServiece {
 	}
 
 }
+
+
+
+
