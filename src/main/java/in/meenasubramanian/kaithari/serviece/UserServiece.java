@@ -1,38 +1,59 @@
 package in.meenasubramanian.kaithari.serviece;
 
+import java.util.List;
+
 import in.meenasubramanian.kaithari.dao.UserDAO;
+import in.meenasubramanian.kaithari.exception.ValidationException;
 import in.meenasubramanian.kaithari.model.User;
 import in.meenasubramanian.kaithari.validation.UserValidator;
 
+
 public class UserServiece {
-	public User[] getAll() {
-		UserDAO userDao = new UserDAO();
-		User[] UserList = userDao.findAll();
-		for (int i = 0; i < UserList.length; i++) {
-			System.out.println(UserList[i]);
-		}
+	UserDAO userdao = new UserDAO();
 
-		return UserList;
+	public void create(User user) throws Exception {
+
+		UserValidator.validate(user);
+
+		userdao.create(user);
+
 	}
 
-	public void create(User newUser) throws Exception {
+	public int count() {
+		return userdao.count();
+
+	}
+
+	public void update(int newId, User newUser) throws ValidationException {
+
 		UserValidator.validate(newUser);
-		UserDAO userDao = new UserDAO();
-		userDao.create(newUser);
+
+		userdao.update(newId, newUser);
+
 	}
 
-	public void update() {
-		UserDAO userDao = new UserDAO();
-		User update1 = new User();
-		update1.setEmail("meenu@gmail.com");
-		update1.setFirstName("Saranya");
-		userDao.update(update1);
+	public void delete(int Id) {
+
+		userdao.delete(Id);
+
 	}
-	public void delete() {
-		UserDAO userDao = new UserDAO();
-		User delete1 = new User();
-		delete1.setId(186540);
-		userDao.delete(delete1);
+
+	public void findById(int newId) {
+
+		userdao.findById(newId);
+
+	}
+
+	public void findByEmail(String Email) {
+
+		userdao.findByEmail(Email);
+
+	}
+
+	public List<User> getAll() {
+
+		return userdao.findAll();
+
 	}
 
 }
