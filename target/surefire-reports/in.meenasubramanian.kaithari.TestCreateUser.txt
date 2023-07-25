@@ -1,13 +1,27 @@
 -------------------------------------------------------------------------------
 Test set: in.meenasubramanian.kaithari.TestCreateUser
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 8, Errors: 0, Skipped: 0, Time elapsed: 5.465 s <<< FAILURE! - in in.meenasubramanian.kaithari.TestCreateUser
+Tests run: 8, Failures: 8, Errors: 0, Skipped: 0, Time elapsed: 2.651 s <<< FAILURE! - in in.meenasubramanian.kaithari.TestCreateUser
 in.meenasubramanian.kaithari.TestCreateUser.testCreateUserWithPasswordNull()  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: Expected in.meenasubramanian.kaithari.exception.ValidationException to be thrown, but nothing was thrown.
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:71)
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:37)
 	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3082)
 	at in.meenasubramanian.kaithari.TestCreateUser.testCreateUserWithPasswordNull(TestCreateUser.java:113)
+
+in.meenasubramanian.kaithari.TestCreateUser.testCreateUserWithFirstnameEmpty()  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected in.meenasubramanian.kaithari.exception.ValidationException to be thrown, but nothing was thrown.
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:71)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:37)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3082)
+	at in.meenasubramanian.kaithari.TestCreateUser.testCreateUserWithFirstnameEmpty(TestCreateUser.java:131)
+
+in.meenasubramanian.kaithari.TestCreateUser.testCreateUserWithPasswordEmpty()  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected in.meenasubramanian.kaithari.exception.ValidationException to be thrown, but nothing was thrown.
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:71)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:37)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3082)
+	at in.meenasubramanian.kaithari.TestCreateUser.testCreateUserWithPasswordEmpty(TestCreateUser.java:93)
 
 in.meenasubramanian.kaithari.TestCreateUser.testCreateUserWithFirstnameNull()  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: Expected in.meenasubramanian.kaithari.exception.ValidationException to be thrown, but nothing was thrown.
@@ -16,40 +30,24 @@ org.opentest4j.AssertionFailedError: Expected in.meenasubramanian.kaithari.excep
 	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3082)
 	at in.meenasubramanian.kaithari.TestCreateUser.testCreateUserWithFirstnameNull(TestCreateUser.java:153)
 
-in.meenasubramanian.kaithari.TestCreateUser.testCreateUserWithValidDataInput()  Time elapsed: 3.152 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: Unexpected exception thrown: java.lang.RuntimeException: java.sql.SQLSyntaxErrorException: target: mynew_project.-.primary: vttablet: rpc error: code = NotFound desc = Unknown column 'first_name' in 'field list' (errno 1054) (sqlstate 42S22) (CallerID: 2cc1s8ps3vkbs6uw2o0r): Sql: "insert into users(first_name, last_name, email, `password`) values (:vtg1 /* VARCHAR */, :vtg2 /* VARCHAR */, :vtg3 /* VARCHAR */, :vtg4 /* VARCHAR */)", BindVars: {REDACTED}
-	at org.junit.jupiter.api.AssertDoesNotThrow.createAssertionFailedError(AssertDoesNotThrow.java:83)
-	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:54)
-	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:37)
-	at org.junit.jupiter.api.Assertions.assertDoesNotThrow(Assertions.java:3135)
-	at in.meenasubramanian.kaithari.TestCreateUser.testCreateUserWithValidDataInput(TestCreateUser.java:28)
-Caused by: java.lang.RuntimeException: java.sql.SQLSyntaxErrorException: target: mynew_project.-.primary: vttablet: rpc error: code = NotFound desc = Unknown column 'first_name' in 'field list' (errno 1054) (sqlstate 42S22) (CallerID: 2cc1s8ps3vkbs6uw2o0r): Sql: "insert into users(first_name, last_name, email, `password`) values (:vtg1 /* VARCHAR */, :vtg2 /* VARCHAR */, :vtg3 /* VARCHAR */, :vtg4 /* VARCHAR */)", BindVars: {REDACTED}
-	at in.meenasubramanian.kaithari.dao.UserDAO.create(UserDAO.java:77)
-	at in.meenasubramanian.kaithari.serviece.UserServiece.create(UserServiece.java:18)
-	at in.meenasubramanian.kaithari.TestCreateUser.lambda$0(TestCreateUser.java:29)
-	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:50)
-	... 16 more
-Caused by: java.sql.SQLSyntaxErrorException: target: mynew_project.-.primary: vttablet: rpc error: code = NotFound desc = Unknown column 'first_name' in 'field list' (errno 1054) (sqlstate 42S22) (CallerID: 2cc1s8ps3vkbs6uw2o0r): Sql: "insert into users(first_name, last_name, email, `password`) values (:vtg1 /* VARCHAR */, :vtg2 /* VARCHAR */, :vtg3 /* VARCHAR */, :vtg4 /* VARCHAR */)", BindVars: {REDACTED}
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1098)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1046)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1371)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1031)
-	at in.meenasubramanian.kaithari.dao.UserDAO.create(UserDAO.java:70)
-	... 19 more
+in.meenasubramanian.kaithari.TestCreateUser.testCreateUserWithInvalidData()  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:35)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:179)
+	at in.meenasubramanian.kaithari.TestCreateUser.testCreateUserWithInvalidData(TestCreateUser.java:44)
 
-in.meenasubramanian.kaithari.TestCreateUser.testCreateUserWithEmailNull()  Time elapsed: 1.18 s  <<< FAILURE!
+in.meenasubramanian.kaithari.TestCreateUser.testCreateUserWithEmailEmpty()  Time elapsed: 2.076 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <in.meenasubramanian.kaithari.exception.ValidationException> but was: <java.lang.RuntimeException>
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:65)
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:37)
 	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3082)
-	at in.meenasubramanian.kaithari.TestCreateUser.testCreateUserWithEmailNull(TestCreateUser.java:51)
+	at in.meenasubramanian.kaithari.TestCreateUser.testCreateUserWithEmailEmpty(TestCreateUser.java:72)
 Caused by: java.lang.RuntimeException: java.sql.SQLSyntaxErrorException: target: mynew_project.-.primary: vttablet: rpc error: code = NotFound desc = Unknown column 'first_name' in 'field list' (errno 1054) (sqlstate 42S22) (CallerID: 2cc1s8ps3vkbs6uw2o0r): Sql: "insert into users(first_name, last_name, email, `password`) values (:vtg1 /* VARCHAR */, :vtg2 /* VARCHAR */, :vtg3 /* VARCHAR */, :vtg4 /* VARCHAR */)", BindVars: {REDACTED}
-	at in.meenasubramanian.kaithari.dao.UserDAO.create(UserDAO.java:77)
-	at in.meenasubramanian.kaithari.serviece.UserServiece.create(UserServiece.java:18)
-	at in.meenasubramanian.kaithari.TestCreateUser.lambda$2(TestCreateUser.java:61)
+	at in.meenasubramanian.kaithari.dao.UserDAO.create(UserDAO.java:80)
+	at in.meenasubramanian.kaithari.serviece.UserServiece.create(UserServiece.java:16)
+	at in.meenasubramanian.kaithari.TestCreateUser.lambda$testCreateUserWithEmailEmpty$3(TestCreateUser.java:82)
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:55)
 	... 16 more
 Caused by: java.sql.SQLSyntaxErrorException: target: mynew_project.-.primary: vttablet: rpc error: code = NotFound desc = Unknown column 'first_name' in 'field list' (errno 1054) (sqlstate 42S22) (CallerID: 2cc1s8ps3vkbs6uw2o0r): Sql: "insert into users(first_name, last_name, email, `password`) values (:vtg1 /* VARCHAR */, :vtg2 /* VARCHAR */, :vtg3 /* VARCHAR */, :vtg4 /* VARCHAR */)", BindVars: {REDACTED}
@@ -63,38 +61,40 @@ Caused by: java.sql.SQLSyntaxErrorException: target: mynew_project.-.primary: vt
 	at in.meenasubramanian.kaithari.dao.UserDAO.create(UserDAO.java:70)
 	... 19 more
 
-in.meenasubramanian.kaithari.TestCreateUser.testCreateUserWithPasswordEmpty()  Time elapsed: 0.001 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: Expected in.meenasubramanian.kaithari.exception.ValidationException to be thrown, but nothing was thrown.
-	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:71)
-	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:37)
-	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3082)
-	at in.meenasubramanian.kaithari.TestCreateUser.testCreateUserWithPasswordEmpty(TestCreateUser.java:93)
+in.meenasubramanian.kaithari.TestCreateUser.testCreateUserWithValidDataInput()  Time elapsed: 0.244 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception thrown: java.lang.RuntimeException: java.sql.SQLSyntaxErrorException: target: mynew_project.-.primary: vttablet: rpc error: code = NotFound desc = Unknown column 'first_name' in 'field list' (errno 1054) (sqlstate 42S22) (CallerID: 2cc1s8ps3vkbs6uw2o0r): Sql: "insert into users(first_name, last_name, email, `password`) values (:vtg1 /* VARCHAR */, :vtg2 /* VARCHAR */, :vtg3 /* VARCHAR */, :vtg4 /* VARCHAR */)", BindVars: {REDACTED}
+	at org.junit.jupiter.api.AssertDoesNotThrow.createAssertionFailedError(AssertDoesNotThrow.java:83)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:54)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:37)
+	at org.junit.jupiter.api.Assertions.assertDoesNotThrow(Assertions.java:3135)
+	at in.meenasubramanian.kaithari.TestCreateUser.testCreateUserWithValidDataInput(TestCreateUser.java:28)
+Caused by: java.lang.RuntimeException: java.sql.SQLSyntaxErrorException: target: mynew_project.-.primary: vttablet: rpc error: code = NotFound desc = Unknown column 'first_name' in 'field list' (errno 1054) (sqlstate 42S22) (CallerID: 2cc1s8ps3vkbs6uw2o0r): Sql: "insert into users(first_name, last_name, email, `password`) values (:vtg1 /* VARCHAR */, :vtg2 /* VARCHAR */, :vtg3 /* VARCHAR */, :vtg4 /* VARCHAR */)", BindVars: {REDACTED}
+	at in.meenasubramanian.kaithari.dao.UserDAO.create(UserDAO.java:80)
+	at in.meenasubramanian.kaithari.serviece.UserServiece.create(UserServiece.java:16)
+	at in.meenasubramanian.kaithari.TestCreateUser.lambda$testCreateUserWithValidDataInput$0(TestCreateUser.java:29)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:50)
+	... 16 more
+Caused by: java.sql.SQLSyntaxErrorException: target: mynew_project.-.primary: vttablet: rpc error: code = NotFound desc = Unknown column 'first_name' in 'field list' (errno 1054) (sqlstate 42S22) (CallerID: 2cc1s8ps3vkbs6uw2o0r): Sql: "insert into users(first_name, last_name, email, `password`) values (:vtg1 /* VARCHAR */, :vtg2 /* VARCHAR */, :vtg3 /* VARCHAR */, :vtg4 /* VARCHAR */)", BindVars: {REDACTED}
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1098)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1046)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1371)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1031)
+	at in.meenasubramanian.kaithari.dao.UserDAO.create(UserDAO.java:70)
+	... 19 more
 
-in.meenasubramanian.kaithari.TestCreateUser.testCreateUserWithFirstnameEmpty()  Time elapsed: 0 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: Expected in.meenasubramanian.kaithari.exception.ValidationException to be thrown, but nothing was thrown.
-	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:71)
-	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:37)
-	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3082)
-	at in.meenasubramanian.kaithari.TestCreateUser.testCreateUserWithFirstnameEmpty(TestCreateUser.java:131)
-
-in.meenasubramanian.kaithari.TestCreateUser.testCreateUserWithInvalidData()  Time elapsed: 0.001 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
-	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:35)
-	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:179)
-	at in.meenasubramanian.kaithari.TestCreateUser.testCreateUserWithInvalidData(TestCreateUser.java:44)
-
-in.meenasubramanian.kaithari.TestCreateUser.testCreateUserWithEmailEmpty()  Time elapsed: 1.13 s  <<< FAILURE!
+in.meenasubramanian.kaithari.TestCreateUser.testCreateUserWithEmailNull()  Time elapsed: 0.331 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <in.meenasubramanian.kaithari.exception.ValidationException> but was: <java.lang.RuntimeException>
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:65)
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:37)
 	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3082)
-	at in.meenasubramanian.kaithari.TestCreateUser.testCreateUserWithEmailEmpty(TestCreateUser.java:72)
+	at in.meenasubramanian.kaithari.TestCreateUser.testCreateUserWithEmailNull(TestCreateUser.java:51)
 Caused by: java.lang.RuntimeException: java.sql.SQLSyntaxErrorException: target: mynew_project.-.primary: vttablet: rpc error: code = NotFound desc = Unknown column 'first_name' in 'field list' (errno 1054) (sqlstate 42S22) (CallerID: 2cc1s8ps3vkbs6uw2o0r): Sql: "insert into users(first_name, last_name, email, `password`) values (:vtg1 /* VARCHAR */, :vtg2 /* VARCHAR */, :vtg3 /* VARCHAR */, :vtg4 /* VARCHAR */)", BindVars: {REDACTED}
-	at in.meenasubramanian.kaithari.dao.UserDAO.create(UserDAO.java:77)
-	at in.meenasubramanian.kaithari.serviece.UserServiece.create(UserServiece.java:18)
-	at in.meenasubramanian.kaithari.TestCreateUser.lambda$3(TestCreateUser.java:82)
+	at in.meenasubramanian.kaithari.dao.UserDAO.create(UserDAO.java:80)
+	at in.meenasubramanian.kaithari.serviece.UserServiece.create(UserServiece.java:16)
+	at in.meenasubramanian.kaithari.TestCreateUser.lambda$testCreateUserWithEmailNull$2(TestCreateUser.java:61)
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:55)
 	... 16 more
 Caused by: java.sql.SQLSyntaxErrorException: target: mynew_project.-.primary: vttablet: rpc error: code = NotFound desc = Unknown column 'first_name' in 'field list' (errno 1054) (sqlstate 42S22) (CallerID: 2cc1s8ps3vkbs6uw2o0r): Sql: "insert into users(first_name, last_name, email, `password`) values (:vtg1 /* VARCHAR */, :vtg2 /* VARCHAR */, :vtg3 /* VARCHAR */, :vtg4 /* VARCHAR */)", BindVars: {REDACTED}

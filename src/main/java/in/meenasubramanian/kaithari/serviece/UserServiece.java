@@ -11,15 +11,13 @@ import in.meenasubramanian.kaithari.validation.UserValidator;
 public class UserServiece {
 	UserDAO userdao = new UserDAO();
 
-	public void create(User user) throws Exception {
-
+	public void create(User user) throws ValidationException, RuntimeException {
 		UserValidator.validate(user);
-
 		userdao.create(user);
-
 	}
 
 	public int count() {
+		
 		return userdao.count();
 
 	}
@@ -31,7 +29,7 @@ public class UserServiece {
 		userdao.update(newId, newUser);
 
 	}
-	
+
 	public void delete(int Id) {
 
 		userdao.delete(Id);
@@ -41,12 +39,13 @@ public class UserServiece {
 	public User findById(int newId) {
 
 		return userdao.findById(newId);
+		
 
 	}
 
-	public void findByEmail(String Email) {
+	public User findByEmail(String Email) {
 
-		userdao.findByEmail(Email);
+		return userdao.findByEmail(Email);
 
 	}
 
@@ -57,7 +56,3 @@ public class UserServiece {
 	}
 
 }
-
-
-
-

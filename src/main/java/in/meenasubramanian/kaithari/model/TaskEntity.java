@@ -47,6 +47,7 @@ public abstract class TaskEntity implements Comparable<TaskEntity> {
 				+ isActive;
 	}
 
+	@Override
 	public int compareTo(TaskEntity t) {
 		if (this.getTaskID() == t.getTaskID()) {
 			return 0;

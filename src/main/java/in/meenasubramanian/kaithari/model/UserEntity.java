@@ -8,7 +8,7 @@ public abstract class UserEntity implements Comparable<UserEntity> {
 	private String password;
 	private int id;
 	private boolean isActive;
-	
+
 
 	public String getFirstname() {
 		return firstname;
@@ -65,6 +65,7 @@ public abstract class UserEntity implements Comparable<UserEntity> {
 				+ ", User id : " + this.getId()+ ", isActive : " + this.isActive();
 	}
 
+	@Override
 	public int compareTo(UserEntity o) {
 		if (this.getId() == o.getId()) {
 			return 0;

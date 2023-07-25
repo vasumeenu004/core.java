@@ -1,11 +1,11 @@
 package in.meenasubramanian.kaithari.dao;
 
-import in.meenasubramanian.kaithari.model.Task;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import in.meenasubramanian.kaithari.model.Task;
+
 
 public class TaskList {
-	public static List<Task> taskList = new ArrayList<Task>();
+	public static List<Task> taskList = new ArrayList<>();
 }

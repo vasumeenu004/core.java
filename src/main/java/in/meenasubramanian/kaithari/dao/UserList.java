@@ -1,11 +1,13 @@
 package in.meenasubramanian.kaithari.dao;
 
-import in.meenasubramanian.kaithari.model.User;
 import java.util.ArrayList;
 import java.util.List;
 
+import in.meenasubramanian.kaithari.model.User;
+
+
 
 public class UserList {
-	public static List<User> ListOfUsers = new ArrayList<User>();
+	public static List<User> ListOfUsers = new ArrayList<>();
 
 }

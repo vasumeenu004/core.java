@@ -10,12 +10,12 @@ public class User extends UserEntity {
 		super.setFirstname(firstName);
 		super.setLastname(lastName);
 		super.setPassword(password);
-		
+
 	}
 	public User() {
-		
+
 	}
 
-	
+
 
 }

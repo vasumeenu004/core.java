@@ -9,11 +9,13 @@ import in.meenasubramanian.kaithari.exception.ValidationException;
 import in.meenasubramanian.kaithari.model.Task;
 import in.meenasubramanian.kaithari.validation.TaskValidator;
 
+
 public class TaskServiece {
 	TaskDAO taskDAO = new TaskDAO();
 
 	public static LocalDate convertToDate(String dateString) {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
 		try {
 			LocalDate localDate = LocalDate.parse(dateString, formatter);
@@ -24,7 +26,7 @@ public class TaskServiece {
 		}
 	}
 
-	public void create(Task task) throws ValidationException {
+	public void create(Task task) throws Exception {
 
 		TaskValidator.validate(task);
 
@@ -46,15 +48,10 @@ public class TaskServiece {
 
 	}
 
-	public void findById(int id) {
-
-		taskDAO.findById(id);
-
-	}
 
 	public int count() {
+		
 		return taskDAO.count();
-
 	}
 
 	public List<Task> getAll() {
@@ -64,6 +61,16 @@ public class TaskServiece {
 		return TaskList;
 
 	}
+	
+	public Task findById(int id) {
 
+		return taskDAO.findById(id);
+
+	}
+	
+	public List<Task> findByDuedate(LocalDate duedate) {
+		
+		return taskDAO.findByDuedate(duedate);
+	}
 
 }

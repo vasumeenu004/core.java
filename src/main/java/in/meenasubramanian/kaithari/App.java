@@ -1,10 +1,12 @@
 package in.meenasubramanian.kaithari;
 
 import java.time.LocalDate;
+
 import in.meenasubramanian.kaithari.model.Task;
 import in.meenasubramanian.kaithari.model.User;
 import in.meenasubramanian.kaithari.serviece.TaskServiece;
 import in.meenasubramanian.kaithari.serviece.UserServiece;
+
 
 public class App {
 
@@ -15,12 +17,12 @@ public class App {
 		System.out.println();
 		System.out.println();
 		System.out.println();
-		System.out.println("////   User   //////");
+		System.out.println("//////////////////////   User   ////////////////////////////////");
 
 		try {
-			User newUser = new User(101, "Meenu", "Vasu", "meenu@gmail.com", "Asdf@123", true);
-			User newUser1 = new User(102, "Saranya", "Subu", "srvasu@google.com", "Saranya@123", true);
-			User newUser2 = new User(103, "Malathi", "Alagar", "mala@apple.com", "mala57", true);
+			User newUser = new User(101, "Meenu", "Vasu", "meenu004@gmail.com", "Asdf@123", true);
+			User newUser1 = new User(102, "Saranya", "Subu", "saran@gmail.com", "SARA@123", true);
+			User newUser2 = new User(103, "Varthini", "Subramanian", "vasu@gmail.com", "AsdfGhjkl", true);
 
 			// User Creation
 			System.out.print("User Creation   = ");

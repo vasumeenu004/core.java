@@ -12,105 +12,101 @@ import in.meenasubramanian.kaithari.exception.ValidationException;
 import in.meenasubramanian.kaithari.model.Task;
 import in.meenasubramanian.kaithari.serviece.TaskServiece;
 
+
 public class TestCreateTask {
 
-
-	
-
 	@Test
-	public void testCreateTaskWithValidData() {
-		TaskServiece taskService = new TaskServiece();
+	public void testCreateTaskWithValidInput() {
+		
+		TaskServiece taskservice = new TaskServiece();
 
 		Task newTask = new Task();
 
-		newTask.setTaskID(12345);
-		String userInput = "23/07/2023";
-
-		newTask.setTaskName("Open the Door");
-		LocalDate convertedDate = TaskServiece.convertToDate(userInput);
-		newTask.setDueDate(convertedDate);
-		newTask.setActive(true);
+		newTask.setTaskName("Write");
+		String date = "06-11-2023";
+		LocalDate convert = TaskServiece.convertToDate(date);
+		newTask.setDueDate(convert);
 
 		assertDoesNotThrow(() -> {
-			taskService.create(newTask);
+			taskservice.create(newTask);
 		});
-
 	}
 
 	@Test
-	public void testCreateTaskWithInvalidData() {
-		TaskServiece taskService = new TaskServiece();
+	public void testCreateTaskWithInValidInput() {
+		TaskServiece taskservice = new TaskServiece();
+
 		Exception exception = assertThrows(ValidationException.class, () -> {
-			taskService.create(null);
+			taskservice.create(null);
 		});
+
 		String expectedMessage = "Invalid Task Input";
 		String actualMessage = exception.getMessage();
 		assertTrue(expectedMessage.equals(actualMessage));
 	}
 
+	// dueDate test case
 	@Test
-	public void testCreateTaskWithTaskNameNull() {
-		TaskServiece taskService = new TaskServiece();
+	public void testCreateUserWithNameNull() {
+		TaskServiece taskservice = new TaskServiece();
+
+		Task newTask = new Task();
+
+		newTask.setTaskName(null);
+		String date = "06-07-2023";
+		LocalDate convert = TaskServiece.convertToDate(date);
+		newTask.setDueDate(convert);
+
+		
 		Exception exception = assertThrows(ValidationException.class, () -> {
-
-			Task newTask = new Task();
-
-			newTask.setTaskID(12345);
-			String userInput = "23/07/2023";
-
-			newTask.setTaskName(null);
-			LocalDate convertedDate = TaskServiece.convertToDate(userInput);
-			newTask.setDueDate(convertedDate);
-			newTask.setActive(true);
-
-			taskService.create(newTask);
+			taskservice.create(newTask);
 		});
-		String expectedMessage = "Taskname cannot be Null or Empty";
+		String expectedMessage = "Taskname cannot be null or empty";
 		String actualMessage = exception.getMessage();
 		assertTrue(expectedMessage.equals(actualMessage));
+
 	}
-
+	
+	
 	@Test
-	public void testCreateTaskWithTaskNameEmpty() {
-		TaskServiece taskService = new TaskServiece();
+	public void testCreateUserWithNameEmpty() {
+		TaskServiece taskservice = new TaskServiece();
+
+		Task newTask = new Task();
+
+		newTask.setTaskName("");
+		String date = "06-07-2023";
+		LocalDate convert = TaskServiece.convertToDate(date);
+		newTask.setDueDate(convert);
+		
 		Exception exception = assertThrows(ValidationException.class, () -> {
-
-			Task newTask = new Task();
-
-			newTask.setTaskID(12345);
-			String userInput = "23/07/2023";
-			newTask.setTaskName("");
-			LocalDate convertedDate = TaskServiece.convertToDate(userInput);
-			newTask.setDueDate(convertedDate);
-			newTask.setActive(true);
-
-			taskService.create(newTask);
+			taskservice.create(newTask);
 		});
-		String expectedMessage = "Taskname cannot be Null or Empty";
+		String expectedMessage = "Taskname cannot be null or empty";
 		String actualMessage = exception.getMessage();
 		assertTrue(expectedMessage.equals(actualMessage));
+
 	}
-
+	
 	@Test
-	public void testCreateTaskWithInvalidDate() {
-		TaskServiece taskService = new TaskServiece();
+	public void testCreateUserWithInvalidDueDate() {
+		TaskServiece taskservice = new TaskServiece();
+
+		Task newTask = new Task();
+
+		newTask.setTaskName("Write");
+		String date = "06-08-2022";
+		LocalDate convert = TaskServiece.convertToDate(date);
+		newTask.setDueDate(convert);
+		
 		Exception exception = assertThrows(ValidationException.class, () -> {
-
-			Task newTask = new Task();
-
-			newTask.setTaskID(99999);
-			String userInput = "23/07/2022";
-
-			newTask.setTaskName("Close The Door");
-			LocalDate convertedDate = TaskServiece.convertToDate(userInput);
-			newTask.setDueDate(convertedDate);
-			newTask.setActive(true);
-
-			taskService.create(newTask);
+			taskservice.create(newTask);
 		});
-		String expectedMessage = "Due Date can not be in the Past";
+		String expectedMessage = "Duedate Invalid";
 		String actualMessage = exception.getMessage();
 		assertTrue(expectedMessage.equals(actualMessage));
+
 	}
+	
 
 }
